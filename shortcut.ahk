@@ -3,6 +3,7 @@
 ::commander::"G:\SiliconLabs\SimplicityStudio\v5\developer\adapter_packs\commander\commander.exe"
 #IfWinActive
 
+
 ::~~date::
 FormatTime, CurrentDateTime,, yyyy-MM-dd hh:mm:ss
 SendInput %CurrentDateTime%
