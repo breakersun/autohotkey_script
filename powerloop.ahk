@@ -15,9 +15,12 @@ Start:
 Gui, Submit
 MsgBox, , , Test Starting On %COMx%,
 
+SetTimer, com_fail, 20000
 RunWait, %ComSpec% /c dtest.exe %COMx% haptic_test run, ,Hide
 RunWait, %ComSpec% /c dtest.exe %COMx% charge_control off, ,Hide
 RunWait, %ComSpec% /c dtest.exe %COMx% setled off, ,Hide
+SetTimer, com_fail, Off
+
 SetTimer, led_on, 500
 if (%BuzzChoice% = "Yes")
 {
@@ -40,5 +43,10 @@ return
 ; buzz only works for 10 seconds at 90% duty cycle with below commands
 buzz:
 RunWait, %ComSpec% /c dtest.exe %COMx% motor_ctl 10 90, ,Hide
+return
+
+com_fail:
+MsgBox, , , dtest error; please check UART & DUT,
+ExitApp
 return
 
