@@ -16,17 +16,17 @@ Info:
 Run, https://portal-useast.labcollab.net/https/issues.labcollab.net/browse/MAGIC-1876
 info_text = 
 (
-See MAGIC-1876
-The test loop behavior would be like this
-1. turn on five BLUE LEDs for 20 seconds and off for 60 seconds.
-2. turn on the motor for 10 seconds and off for 60 seconds
-3. keep the accelerometer working in the background
-4. keep the BLE advertising working in the background
+    See MAGIC-1876
+    The test loop behavior would be like this
+    1. turn on five BLUE LEDs for 20 seconds and off for 60 seconds.
+    2. turn on the motor for 10 seconds and off for 60 seconds
+    3. keep the accelerometer working in the background
+    4. keep the BLE advertising working in the background
 
-The working conditions for all related peripherals:
-- LEDs: duty cycle as 50`%
-- motor: duty cycle as 90`%, and frequency as 20Khz
-- BLE advertising: interval as 1 second, and transmit power as +4dBm
+    The working conditions for all related peripherals:
+    - LEDs: duty cycle as 50`%
+    - motor: duty cycle as 90`%, and frequency as 20Khz
+    - BLE advertising: interval as 1 second, and transmit power as +4dBm
 )
 msgbox %info_text%
 return
