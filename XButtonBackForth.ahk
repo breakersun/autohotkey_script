@@ -4,7 +4,7 @@ XButton1::Send {Alt down}{Left}{Alt up}
 XButton2::Send {Alt down}{Right}{Alt up}
 #IfWinActive
 
-#IfWinActive ahk_exe FoxitReader.exe
+#IfWinActive ahk_exe FoxitPDFReader.exe
 XButton1::Send {Alt down}{Left}{Alt up}
 XButton2::Send {Alt down}{Right}{Alt up}
 #IfWinActive
