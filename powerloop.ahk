@@ -41,20 +41,22 @@ RunWait, %ComSpec% /c dtest.exe %COMx% charge_control off, ,Hide
 RunWait, %ComSpec% /c dtest.exe %COMx% setled off, ,Hide
 SetTimer, com_fail, Off
 
-SetTimer, led_on, 500
-if (%BuzzChoice% = "Yes")
+if(BuzzChoice = "Yes")
 {
     SetTimer, buzz, 70000
 }
+SetTimer, led_on, 500
 return
 
 led_on:
+SplashTextOn, , , Blue LEDs Light On
 RunWait, %ComSpec% /c dtest.exe %COMx% setled on 11111 0 0 64 64, ,Hide
 SetTimer, led_on, off
 SetTimer, led_off, 20000
 return
 
 led_off:
+SplashTextOn, , , All LEDs Light Off
 RunWait, %ComSpec% /c dtest.exe %COMx% setled off, ,Hide
 SetTimer, led_off, off
 SetTimer, led_on, 60000
@@ -62,6 +64,7 @@ return
 
 ; buzz only works for 10 seconds at 90% duty cycle with below commands
 buzz:
+SplashTextOn, , , Buzzing
 RunWait, %ComSpec% /c dtest.exe %COMx% motor_ctl 10 90, ,Hide
 return
 
