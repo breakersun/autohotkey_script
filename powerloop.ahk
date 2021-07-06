@@ -2,12 +2,15 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-Gui, New
+Gui, Main:New
 Gui, Add, Text,, COM Number
 Gui, Add, Edit, vCOMx
 Gui, Add, Text,, Buzzer
 Gui, Add, DropDownList, vBuzzChoice, Yes||No
+Gui, Add, Text, vLedStatus, LEDs Off
+Gui, Add, Text, vBuzzStatus, Buzz Off
 Gui, Add, Button, Default gStart, Start
+Gui, Add, Button, gStop, Stop
 Gui, Add, Button, gInfo, Info
 Gui, Show
 return
@@ -32,7 +35,7 @@ msgbox %info_text%
 return
 
 Start:
-Gui, Submit
+Gui, Submit, NoHide
 MsgBox, , , Test Starting On %COMx%,
 
 SetTimer, com_fail, 20000
@@ -48,24 +51,38 @@ if(BuzzChoice = "Yes")
 SetTimer, led_on, 500
 return
 
+Stop:
+goto led_off
+SetTimer, led_on, off
+goto buzz
+return
+
+
+
 led_on:
-SplashTextOn, , , Blue LEDs Light On
 RunWait, %ComSpec% /c dtest.exe %COMx% setled on 11111 0 0 64 64, ,Hide
 SetTimer, led_on, off
 SetTimer, led_off, 20000
+GuiControl, Main: , LedStatus, LEDs On
 return
 
 led_off:
-SplashTextOn, , , All LEDs Light Off
 RunWait, %ComSpec% /c dtest.exe %COMx% setled off, ,Hide
 SetTimer, led_off, off
 SetTimer, led_on, 60000
+GuiControl, Main: , LedStatus, LEDs Off
 return
 
 ; buzz only works for 10 seconds at 90% duty cycle with below commands
 buzz:
-SplashTextOn, , , Buzzing
 RunWait, %ComSpec% /c dtest.exe %COMx% motor_ctl 10 90, ,Hide
+GuiControl, Main: , BuzzStatus, Buzz On
+SetTimer, update_buzz_status, 10000
+return
+
+update_buzz_status:
+GuiControl, Main: , BuzzStatus, Buzz Off
+SetTimer, update_buzz_status, off
 return
 
 com_fail:
