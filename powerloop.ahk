@@ -13,8 +13,8 @@ Gui, Add, DropDownList, vBuzzChoice, Yes||No
 Gui, Add, Text, vLedStatus, LEDs Off XXXXXXXX
 Gui, Add, Text, vBuzzStatus, Buzz Off XXXXXXXX
 Gui, Add, Button, Default gStart, Start
-Gui, Add, Button, gStop, Stop
-Gui, Add, Button, gInfo, Info
+Gui, Add, Button, x+5 gStop, Stop
+Gui, Add, Button, x+7 gInfo, Info
 Gui, Show
 return
 
