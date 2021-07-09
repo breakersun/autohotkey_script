@@ -55,9 +55,11 @@ Start:
     return
 
 Stop:
-    goto led_off
+    Gosub, led_off
     SetTimer, led_on, off
-    goto buzz
+    SetTimer, buzz, off
+    led_rounds := 0
+    buzz_rounds := 0
     return
 
 
