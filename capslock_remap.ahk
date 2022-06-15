@@ -66,8 +66,8 @@ Capslock & ' up::SendInput {Blind}{PgDn Up}
 ; ----------------
 Capslock & y::SendInput {Blind}{BS DownTemp}
 Capslock & y up::SendInput {Blind}{BS Up}
-Capslock & x::SendInput {Blind}{Del DownTemp}
-Capslock & x up::SendInput {Blind}{Del Up}
+Capslock & d::SendInput {Blind}{Del DownTemp}
+Capslock & d up::SendInput {Blind}{Del Up}
 Capslock & BS::SendInput {Blind}{Del DownTemp}
 Capslock & BS up::SendInput {Blind}{Del Up}
 ; ----------------
