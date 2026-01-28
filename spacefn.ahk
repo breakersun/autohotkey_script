@@ -32,11 +32,5 @@ F24 & 9::F9
 F24 & 0::F10
 F24 & -::F11
 F24 & =::F12
-;
-; F24 & Enter::^Enter
 
-;Ctrl+S 重加载
-; ~^s::
-; sleep 500
-; Reload
-; return
+F24 & Enter::^Enter
