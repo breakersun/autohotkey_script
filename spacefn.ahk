@@ -1,13 +1,14 @@
-;SpaceFn
+;CapsLockFn
 #inputlevel,2
-$Space::
+$CapsLock::
     SetMouseDelay -1
     Send {Blind}{F24 DownR}
-    KeyWait, Space
+    KeyWait, CapsLock
     Send {Blind}{F24 up}
     ; MsgBox, %A_ThisHotkey%-%A_TimeSinceThisHotkey%
-    if(A_ThisHotkey="$Space" and A_TimeSinceThisHotkey<300)
-        Send {Blind}{Space DownR}
+    if(A_ThisHotkey="$CapsLock" and A_TimeSinceThisHotkey<300)
+        ; Send {Blind}{CapsLock DownR}
+        Send {Blind}{CapsLock}
     return
 
 #inputlevel,1
